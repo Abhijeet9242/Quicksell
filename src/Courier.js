@@ -12,13 +12,13 @@ const Courier = () => {
   const [companyy, setCompanyy] = useState([]);
 
   useEffect(() => {
-    fetch("  http://localhost:3008/companyx")
+    fetch("https://swiggydbjson.herokuapp.com/companyx")
       .then((res) => res.json())
       .then((result) => setCompanyx(result));
   }, []);
 
   useEffect(() => {
-    fetch(" http://localhost:3008/companyy  ")
+    fetch("https://swiggydbjson.herokuapp.com/companyy")
       .then((res) => res.json())
       .then((result) => setCompanyy(result));
   }, []);
@@ -75,35 +75,40 @@ const Courier = () => {
   };
 
   return (
-    <div className="form_div">
+    <>
+      <h1 className="heading">Courier Price Calculater</h1>
       <div className="form_div">
-        <form action="">
-          <input
-            type="text"
-            placeholder="enter weight in kg"
-            onChange={(e) => setWeight(e.target.value)}
-            name="weight"
-          />
-          <input
-            type="number"
-            placeholder="enter pincode"
-            onChange={(e) => setPincode(e.target.value)}
-            name="pincode"
-          />
-          <select
-            name="ratetype"
-            id=""
-            onChange={(e) => setRate(e.target.value)}
-          >
-            <option value="Forward">Forward</option>
-            <option value="Forward & RTO">Forward&Rto</option>
-          </select>
-          <button onClick={handleSubmit}>submit</button>
-        </form>
+        <div className="form_div">
+          <form action="">
+            <input
+              type="text"
+              placeholder="enter weight in kg"
+              onChange={(e) => setWeight(e.target.value)}
+              name="weight"
+            />
+            <input
+              type="number"
+              placeholder="enter pincode"
+              onChange={(e) => setPincode(e.target.value)}
+              name="pincode"
+            />
+            <select
+              name="ratetype"
+              id=""
+              onChange={(e) => setRate(e.target.value)}
+            >
+              <option value="Forward">Forward</option>
+              <option value="Forward & RTO">Forward&Rto</option>
+            </select>
+            <button onClick={handleSubmit}>Get Price</button>
+          </form>
 
-        <div style={{ marginLeft: 20 }}>{charge}</div>
+          <div className="pricediv">
+            <h4>Expected Price:{charge}</h4>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
