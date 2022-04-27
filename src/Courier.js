@@ -76,7 +76,7 @@ const Courier = () => {
 
   return (
     <>
-      <h1 className="heading">Courier Price Calculater</h1>
+      <h1 className="heading">Courier Price Calculator</h1>
       <div className="form_div">
         <div className="form_div">
           <form action="">
